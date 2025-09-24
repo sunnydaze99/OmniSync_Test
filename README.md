@@ -7,7 +7,8 @@
    cd OmniSync_Test
 
 2. Build and run with Docker
-docker compose up --build
+    ```bash
+    docker compose up --build
 
 Access services:
 
