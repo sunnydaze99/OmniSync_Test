@@ -1,0 +1,111 @@
+@import "./variables";
+@import "./animations";
+
+.app {
+  padding: $spacing;
+  min-height: 100vh;   // keep this so it fills the viewport
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-family: $font-family-header;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing;
+  max-width: 900px;   // match grid width
+  margin: 0 auto $spacing; // center + space below
+  width: 100%;
+}
+
+.sort-tab select {
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.clear-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 6px;
+  transition: background $transition-speed ease;
+
+  &:hover {
+    background: #eee;
+  }
+}
+
+.card-grid-wrapper {
+//   display: flex;
+//   justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+//   grid-template-rows: repeat(2, auto);
+  gap: $spacing;
+  max-width: 900px;
+  width: 100%;
+}
+
+.card {
+  position: relative;
+  background: $card-color;
+  border-radius: $border-radius;
+  padding: $spacing;
+  color: $text-color;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
+
+  &-number {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  &-clicks {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: $background-color;
+    color: $text-color;
+    border-radius: 50%;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+
+  &-time {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0;
+    right: 0;
+    font-size: 0.9rem;
+    color: red;
+  }
+}
+
+// Staggered fade-in
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+.card:nth-child(5) { animation-delay: 0.5s; }
+.card:nth-child(6) { animation-delay: 0.6s; }
+.card:nth-child(7) { animation-delay: 0.7s; }
+.card:nth-child(8) { animation-delay: 0.8s; }
