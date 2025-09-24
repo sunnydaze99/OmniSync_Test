@@ -10,12 +10,13 @@ app.use(express.json());
 
 // Postgres connection
 const pool = new Pool({
-  user: "postgres",
-  host: "localhost",   // will be "db" later in Docker
-  database: "cardsdb",
-  password: "postgres",
-  port: 5432,
+  user: process.env.DB_USER || "postgres",
+  host: process.env.DB_HOST || "db",
+  database: process.env.DB_NAME || "cardsdb",
+  password: process.env.DB_PASSWORD || "postgres",
+  port: Number(process.env.DB_PORT) || 5432,
 });
+
 
 // Routes
 app.get("/", (req, res) => {

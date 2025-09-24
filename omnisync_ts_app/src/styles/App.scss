@@ -6,6 +6,44 @@
   min-height: 100vh;   // keep this so it fills the viewport
   display: flex;
   flex-direction: column;
+  &.dark {
+    background: #121212;
+    color: #eee;
+
+    .card {
+      background: #4a90e2; // blue cards in dark mode
+      color: white;
+
+      &-clicks {
+        background: #222;
+        color: #fff;
+      }
+
+      &-time {
+        color: #ff7676; // keep timestamp red for contrast
+      }
+    }
+
+    .dark-btn {
+      background: #4a90e2;
+      color: white;
+    }
+  }
+}
+
+.dark-btn {
+  margin-left: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: $border-radius;
+  background: $card-color;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background $transition-speed ease;
+
+  &:hover {
+    background: darken($card-color, 10%);
+  }
 }
 
 h1 {

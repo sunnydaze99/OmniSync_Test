@@ -1,0 +1,17 @@
+# Frontend Dockerfile
+FROM node:18
+
+WORKDIR /app
+
+COPY omnisync_ts_app/package*.json ./
+RUN npm install
+
+COPY omnisync_ts_app/ ./
+
+RUN npm run build
+
+# Serve build with a simple server (vite preview or serve)
+RUN npm install -g serve
+CMD ["serve", "-s", "dist"]
+
+EXPOSE 5173
